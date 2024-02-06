@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {
+  BgChat,
   // BgChat,
   BgIntro,
   IcArchive,
@@ -206,7 +207,12 @@ const App = () => {
               </div>
             </div>
             <div className="flex h-[80vh]">
-              <div className="bg-chat custom-scrollbar  flex w-full overflow-y-scroll bg-color1 bg-bg-chat">
+              <div
+                className="custom-scrollbar flex w-full overflow-y-scroll bg-color1"
+                style={{
+                  background: `linear-gradient(rgba(17, 27, 33, 0.5), rgba(17, 27, 33, 0.5)), url('${BgChat}')`,
+                }}
+              >
                 <div className="mx-10 w-full flex-col text-color1">
                   <p>{isActiveChat.data.message}</p>
                 </div>
