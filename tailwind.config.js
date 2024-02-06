@@ -19,6 +19,12 @@ export default {
         "85vh": "85h",
         "90vh": "90h",
       },
+      width: {
+        70: "70%",
+      },
+      maxWidth: {
+        70: "70%",
+      },
       backgroundColor: {
         color2: "#212E35",
         color1: "#111B21",

@@ -180,7 +180,7 @@ const App = () => {
         </div>
       ) : (
         <div className="flex h-screen w-full bg-color2 lg:border-l lg:border-color2">
-          <div className="flex w-full flex-col bg-color1">
+          <div className="flex w-full flex-col justify-between bg-color1">
             <div className="w-full bg-color2">
               <div className="mx-2 flex items-center justify-between p-2">
                 <div className="flex items-center justify-between">
@@ -205,88 +205,15 @@ const App = () => {
                 </div>
               </div>
             </div>
-            <div className="flex h-[84vh]">
+            <div className="flex h-[80vh]">
               <div className="bg-chat custom-scrollbar  flex w-full overflow-y-scroll bg-color1 bg-bg-chat">
                 <div className="mx-10 w-full flex-col text-color1">
-                  <p>
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                  </p>
-                  <p>
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                  </p>
-                  <p>
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                  </p>
-                  <p>
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                  </p>
-                  <p>
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                  </p>
-                  <p>
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                  </p>
-                  <p>
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                  </p>
-                  <p>
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                  </p>
-                  <p>
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                  </p>
-                  <p>
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                  </p>
-                  <p>
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                  </p>
-                  <p>
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                  </p>
-                  <p>
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                  </p>
-                  <p>
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                  </p>
-                  <p>
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
-                  </p>
+                  <p>{isActiveChat.data.message}</p>
                 </div>
               </div>
             </div>
-            <div className="bg-color3 xs:absolute xs:bottom-0 flex w-full items-center p-4 sm:absolute sm:bottom-0 md:absolute md:bottom-0">
+            <div className="bg-color3 flex w-full items-center p-4">
+              {" "}
               <div className="mr-4 flex flex-row">
                 <img src={IcEmoji} className="ml-2 h-7 w-7 cursor-pointer" />
                 <img
