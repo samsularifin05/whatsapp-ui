@@ -4,10 +4,6 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      backgroundImage: {
-        "bg-chat":
-          'linear-gradient(rgba(17, 27, 33, 0.10), rgba(17, 27, 33, 0.10)), url("./src/assets/img/bg-chat.png")',
-      },
       screens: {
         xs: "360px",
         sm: "630px",

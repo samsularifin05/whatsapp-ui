@@ -58,6 +58,7 @@ const App = () => {
         <div className="bg-color2">
           <div className="mx-2 flex items-center justify-between p-2">
             <img
+              alt="profile"
               className="h-10 w-10 rounded-full"
               src="https://pps.whatsapp.net/v/t61.24694-24/399111773_1282213165814980_2250441158226597655_n.jpg?stp=dst-jpg_s96x96&ccb=11-4&oh=01_AdRhZtGi3bpjiDaD0ZHZDYKdLyuWB1IO0L29FBErz37slA&oe=65CB76CC&_nc_sid=e6ed6c&_nc_cat=108"
             />
@@ -95,6 +96,7 @@ const App = () => {
             <div className="item-center flex flex-row">
               <div className="relative flex flex-grow items-center">
                 <img
+                  alt="icon-search"
                   src={isFocused ? IcBack : IcSearch}
                   className="absolute left-2 h-6 w-6 cursor-pointer  text-gray-500"
                 />
@@ -106,6 +108,7 @@ const App = () => {
                 />
               </div>
               <img
+                alt="icon-filter"
                 src={IcFilter}
                 className="ml-2 mt-1 h-6 w-6 cursor-pointer"
               />
@@ -113,7 +116,11 @@ const App = () => {
           </div>
           <div id="archive">
             <div className="mx-4 flex flex-row items-center justify-between ">
-              <img src={IcArchive} className="ml-2 mr-8 h-5 w-5" />
+              <img
+                src={IcArchive}
+                alt="icon-archive"
+                className="ml-2 mr-8 h-5 w-5"
+              />
               <div className="mt-5 flex w-full flex-col border-b-2 border-color1">
                 <p className="mb-4 text-color1"> Diarsipkan </p>
               </div>
@@ -186,6 +193,7 @@ const App = () => {
               <div className="mx-2 flex items-center justify-between p-2">
                 <div className="flex items-center justify-between">
                   <img
+                    alt="profile"
                     className="h-10 w-10 rounded-full"
                     src={isActiveChat.data.profile}
                   />
@@ -196,10 +204,12 @@ const App = () => {
                 </div>
                 <div className="flex items-end">
                   <img
+                    alt="icon-search-chat"
                     src={IcSearchChat}
                     className="mr-7 h-[1.5rem] w-[1.5rem] cursor-pointer"
                   />
                   <img
+                    alt="icon-setting"
                     src={IcSetting}
                     className="mr-2 h-6 w-6 cursor-pointer"
                   />
@@ -221,8 +231,13 @@ const App = () => {
             <div className="bg-color3 flex w-full items-center p-4">
               {" "}
               <div className="mr-4 flex flex-row">
-                <img src={IcEmoji} className="ml-2 h-7 w-7 cursor-pointer" />
                 <img
+                  src={IcEmoji}
+                  alt="icon-emoji"
+                  className="ml-2 h-7 w-7 cursor-pointer"
+                />
+                <img
+                  alt="icon-plus"
                   src={IcPlus}
                   className="ml-2 mr-3 h-7 w-7 cursor-pointer"
                 />
@@ -235,7 +250,11 @@ const App = () => {
                   placeholder={"Ketik Pesan"}
                 />
               </div>
-              <img src={IcMicrofont} className="ml-2 h-7 w-7 cursor-pointer" />
+              <img
+                src={IcMicrofont}
+                alt="icon-microfont"
+                className="ml-2 h-7 w-7 cursor-pointer"
+              />
             </div>
           </div>
         </div>
