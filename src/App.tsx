@@ -1,42 +1,47 @@
 import { useState } from "react";
 import {
+  // BgChat,
   BgIntro,
   IcArchive,
   IcBack,
   IcComunity,
+  IcEmoji,
   IcFilter,
+  IcMicrofont,
   IcNewMessage,
   IcNotif,
+  IcPlus,
   IcSaluran,
   IcSearch,
+  IcSearchChat,
   IcSetting,
   IStatusUnRead,
 } from "./assets";
-import { faker } from "@faker-js/faker";
-const generateDemoData = () => {
-  const demoData = [];
+import demoData from "./assets/data/datachat.json";
 
-  for (let i = 0; i < 10; i++) {
-    const profile = `https://placekitten.com/200/200?image=${i + 1}`; // Use a placeholder image URL
-    const name = faker.person.fullName();
-    const message = faker.lorem.sentence();
-    const time = faker.date.recent().toLocaleTimeString();
-    const notificationCount = faker.number.int(10);
+export interface demoDataInterFace {
+  active: number;
+  data: {
+    profile: string;
+    name: string;
+    message: string;
+    time: string;
+    notificationCount: number;
+  };
+}
 
-    demoData.push({
-      profile,
-      name,
-      message,
-      time,
-      notificationCount,
-    });
-  }
-
-  return demoData;
-};
 const App = () => {
   const [isFocused, setIsFocused] = useState(false);
-  const [isActiveChat, setActiveChat] = useState(-1);
+  const [isActiveChat, setActiveChat] = useState<demoDataInterFace>({
+    active: -1,
+    data: {
+      profile: "",
+      name: "",
+      message: "",
+      time: "",
+      notificationCount: 0,
+    },
+  });
   const truncateText = (text: string) => {
     if (text.length > 40) {
       return text.slice(0, 40) + "...";
@@ -44,10 +49,11 @@ const App = () => {
     return text;
   };
 
-  const demoData = generateDemoData();
   return (
     <div className="h-screen sm:w-full md:w-full lg:flex">
-      <div className="lg:w-30 bg-color1 ">
+      <div
+        className={`lg:w-30 bg-color1 ${isActiveChat.active !== -1 && "xs:hidden sm:hidden lg:block"} `}
+      >
         <div className="bg-color2">
           <div className="mx-2 flex items-center justify-between p-2">
             <img
@@ -94,7 +100,7 @@ const App = () => {
                 <input
                   onFocus={() => setIsFocused(true)}
                   onBlur={() => setIsFocused(false)}
-                  className="bg-color2 rounded-8 h-8 w-full pl-10 text-cyan-50 outline-none"
+                  className="h-8 w-full rounded-8 bg-color2 pl-10 text-cyan-50 outline-none"
                   placeholder={isFocused ? "" : "Cari atau mulai chat baru"}
                 />
               </div>
@@ -107,20 +113,27 @@ const App = () => {
           <div id="archive">
             <div className="mx-4 flex flex-row items-center justify-between ">
               <img src={IcArchive} className="ml-2 mr-8 h-5 w-5" />
-              <div className="border-color1 mt-5 flex w-full flex-col border-b-2">
-                <p className="text-color1 mb-4"> Diarsipkan </p>
+              <div className="mt-5 flex w-full flex-col border-b-2 border-color1">
+                <p className="mb-4 text-color1"> Diarsipkan </p>
               </div>
-              <p className="text-colorActive text-xs">1</p>
+              <p className="text-xs text-colorActive">1</p>
             </div>
           </div>
-          <div className="custom-scrollbar overflow-y-auto  sm:w-full md:max-h-screen lg:max-h-[35rem]">
+          <div
+            className={`custom-scrollbar h-screen overflow-y-auto lg:max-h-[35rem] `}
+          >
             <div className={`flex cursor-pointer flex-col`}>
               {demoData.map((list, index) => {
                 return (
                   <section
                     key={index}
-                    onClick={() => setActiveChat(index)}
-                    className={`${isActiveChat === index && "bg-chatActive"}`}
+                    onClick={() =>
+                      setActiveChat({
+                        active: index,
+                        data: list,
+                      })
+                    }
+                    className={`${isActiveChat.active === index && "bg-chatActive"}`}
                   >
                     <div className={`ml-3 mr-4 flex items-center space-y-4 `}>
                       <img
@@ -129,7 +142,7 @@ const App = () => {
                         alt="Profile"
                       />
                       <div className="flex w-full flex-col">
-                        <div className="border-color1 flex justify-between border-b-2">
+                        <div className="flex justify-between border-b-2 border-color1">
                           <div className="flex flex-col">
                             <p className="text-color1">{list.name}</p>
                             <p className="mb-6 w-full text-xs text-stone-300">
@@ -137,14 +150,14 @@ const App = () => {
                             </p>
                           </div>
                           <div className="text-right">
-                            <p className="text-color2 text-xs">{list.time}</p>
+                            <p className="text-xs text-color2">{list.time}</p>
                             <div className="flex-end mt-1 flex justify-end">
                               <img
                                 src={IcNotif}
                                 className="mr-2 h-4 w-4"
                                 alt="Notification"
                               />
-                              <div className="bg-colorActive flex w-5 items-center justify-center rounded-full text-black">
+                              <div className="flex w-5 items-center justify-center rounded-full bg-colorActive text-black">
                                 <p className="text-xs">
                                   {list.notificationCount}
                                 </p>
@@ -161,9 +174,139 @@ const App = () => {
           </div>
         </div>
       </div>
-      <div className="bg-color2 border-color2 hidden h-full w-full justify-center border-l sm:flex md:hidden lg:flex">
-        <img src={BgIntro} alt="Background" />
-      </div>
+      {isActiveChat.active === -1 ? (
+        <div className="hidden h-full w-full items-center justify-center border-l border-color2 bg-color2 sm:hidden md:hidden lg:flex">
+          <img src={BgIntro} alt="Background" className="h-[50rem] w-[50rem]" />
+        </div>
+      ) : (
+        <div className="flex h-screen w-full bg-color2 lg:border-l lg:border-color2">
+          <div className="flex w-full flex-col bg-color1">
+            <div className="w-full bg-color2">
+              <div className="mx-2 flex items-center justify-between p-2">
+                <div className="flex items-center justify-between">
+                  <img
+                    className="h-10 w-10 rounded-full"
+                    src={isActiveChat.data.profile}
+                  />
+                  <p className="ml-3 cursor-pointer text-color1">
+                    {" "}
+                    {isActiveChat.data.name}{" "}
+                  </p>
+                </div>
+                <div className="flex items-end">
+                  <img
+                    src={IcSearchChat}
+                    className="mr-7 h-[1.5rem] w-[1.5rem] cursor-pointer"
+                  />
+                  <img
+                    src={IcSetting}
+                    className="mr-2 h-6 w-6 cursor-pointer"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="flex h-[84vh]">
+              <div className="bg-chat custom-scrollbar  flex w-full overflow-y-scroll bg-color1 bg-bg-chat">
+                <div className="mx-10 w-full flex-col text-color1">
+                  <p>
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                  </p>
+                  <p>
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                  </p>
+                  <p>
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                  </p>
+                  <p>
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                  </p>
+                  <p>
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                  </p>
+                  <p>
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                  </p>
+                  <p>
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                  </p>
+                  <p>
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                  </p>
+                  <p>
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                  </p>
+                  <p>
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                  </p>
+                  <p>
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                  </p>
+                  <p>
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                  </p>
+                  <p>
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                  </p>
+                  <p>
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                  </p>
+                  <p>
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                    HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI HAI
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="bg-color3 xs:absolute xs:bottom-0 flex w-full items-center p-4 sm:absolute sm:bottom-0 md:absolute md:bottom-0">
+              <div className="mr-4 flex flex-row">
+                <img src={IcEmoji} className="ml-2 h-7 w-7 cursor-pointer" />
+                <img
+                  src={IcPlus}
+                  className="ml-2 mr-3 h-7 w-7 cursor-pointer"
+                />
+              </div>
+              <div className="ml-2 w-full">
+                <input
+                  onFocus={() => setIsFocused(true)}
+                  onBlur={() => setIsFocused(false)}
+                  className="bg-color4 h-9 w-full rounded-8 pl-2 text-cyan-50 outline-none"
+                  placeholder={"Ketik Pesan"}
+                />
+              </div>
+              <img src={IcMicrofont} className="ml-2 h-7 w-7 cursor-pointer" />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

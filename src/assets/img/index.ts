@@ -1,3 +1,4 @@
 import BgIntro from "./intro.png";
 import ExampleProfile from "./profile.jpg";
-export { BgIntro, ExampleProfile };
+import BgChat from "./bg-chat.png";
+export { BgIntro, ExampleProfile, BgChat };
