@@ -29,9 +29,9 @@ const App = () => {
   return loading ? (
     <div className="flex h-screen w-screen flex-col items-center justify-center bg-color2">
       <img src={Logo} className="h-72 w-72" />
-      <div className="w-1/3 rounded-lg bg-gray-200">
+      <div className="-mt-20 w-[25rem] rounded-lg bg-gray-200">
         <div
-          className="bg-color6 h-2 rounded-lg"
+          className="bg-color6 h-1 rounded-lg"
           style={{ width: `${progress}%` }}
         ></div>
       </div>
