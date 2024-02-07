@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+import { Logo } from "./assets";
 import {
   ChatAndWelcomScreen,
   ListChat,
@@ -7,7 +9,34 @@ import {
 } from "./components";
 
 const App = () => {
-  return (
+  const [progress, setProgress] = useState(0);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // Increment progress by 1 every 100 milliseconds until it reaches 100
+      if (progress < 100) {
+        setProgress(progress + 1);
+      } else {
+        clearInterval(interval);
+        setLoading(false); // Hide progress bar and show panel
+      }
+    }, 100);
+
+    // Cleanup function to clear interval on unmount or progress reaches 100
+    return () => clearInterval(interval);
+  }, [progress]);
+  return loading ? (
+    <div className="flex h-screen w-screen flex-col items-center justify-center bg-color2">
+      <img src={Logo} className="h-72 w-72" />
+      <div className="w-1/3 rounded-lg bg-gray-200">
+        <div
+          className="bg-color6 h-2 rounded-lg"
+          style={{ width: `${progress}%` }}
+        ></div>
+      </div>
+    </div>
+  ) : (
     <Panel>
       <PanelChat>
         <Profile />

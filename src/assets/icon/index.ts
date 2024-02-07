@@ -15,6 +15,7 @@ import IcMicrofont from "./microfont.png";
 import IcLock from "./lock.png";
 import IcBorderChatActive from "./ic-borderChatActive.png";
 import IcBorderChat from "./ic-borderChat.png";
+import Logo from "./logo.png";
 
 export {
   IcComunity,
@@ -22,6 +23,7 @@ export {
   IcArchive,
   IcNotif,
   IcBorderChat,
+  Logo,
   IcLock,
   IcBorderChatActive,
   IcMicrofont,

@@ -25,6 +25,7 @@ export default {
         color3: "#1D282F",
         color4: "#2A3942",
         color5: "#015C4B",
+        color6: "#666F73",
         colorActive: "#04A784",
         chatActive: "#2A3942",
       },
