@@ -1,5 +1,7 @@
 import {
   BgChat,
+  IcBorderChat,
+  IcBorderChatActive,
   IcEmoji,
   IcMicrofont,
   IcPlus,
@@ -11,6 +13,13 @@ import { useActiveChat } from "../../hooks";
 const DetailChat = () => {
   //   const { isActiveChat, setIsFocused } = props;
   const { isActiveChat, setIsFocused } = useActiveChat();
+
+  const width =
+    isActiveChat.data.message.length > 40
+      ? 40
+      : isActiveChat.data.message.length;
+
+  //   console.log(width);
   return (
     <div className="flex h-screen w-full bg-color2 lg:border-l lg:border-color2">
       <div className="flex w-full flex-col justify-between bg-color1">
@@ -43,16 +52,38 @@ const DetailChat = () => {
         </div>
         <div className="flex h-[80vh]">
           <div
-            className="custom-scrollbar flex w-full overflow-y-scroll bg-color1"
+            className="custom-scrollbar flex w-full flex-col-reverse overflow-y-scroll bg-color1"
             style={{
               background: `linear-gradient(rgba(17, 27, 33, 0.5), rgba(17, 27, 33, 0.5)), url('${BgChat}')`,
             }}
           >
-            <div className="mx-10 w-full flex-col text-color1">
-              <p>{isActiveChat.data.message}</p>
+            <div className="w-2/2 mx-10 text-color1">
+              <div className="flex flex-col">
+                <div className="-ml-5 flex  self-start">
+                  <img src={IcBorderChat} className="mt-[0.65rem] h-6 w-6" />
+                  <div className="bg-color3 -ml-2 mt-3 rounded">
+                    <p className={`ml-2 self-start p-2 lg:w-[${width}rem] `}>
+                      {isActiveChat.data.message}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex self-end">
+                  <div className="bg-color5 -ml-2 mt-3 rounded">
+                    <p className={`ml-3 self-end p-2 lg:w-[${width}rem]`}>
+                      {isActiveChat.data.message}
+                    </p>
+                  </div>
+                  <img
+                    src={IcBorderChatActive}
+                    className="-ml-2 -mr-4 mt-[0.73rem] h-6 w-6"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
+
         <div className="bg-color3 flex w-full items-center p-4">
           {" "}
           <div className="mr-4 flex flex-row">

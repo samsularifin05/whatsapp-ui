@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-const defaultTheme = require("tailwindcss/defaultTheme");
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
@@ -8,7 +7,6 @@ export default {
         xs: "360px",
         sm: "630px",
         md: "768px",
-        ...defaultTheme.screens,
       },
       height: {
         "80vh": "80vh",
@@ -24,8 +22,9 @@ export default {
       backgroundColor: {
         color2: "#212E35",
         color1: "#111B21",
-        color3: "#1F2C33",
+        color3: "#1D282F",
         color4: "#2A3942",
+        color5: "#015C4B",
         colorActive: "#04A784",
         chatActive: "#2A3942",
       },

@@ -13,13 +13,17 @@ import IcEmoji from "./emoji.png";
 import IcPlus from "./plus.png";
 import IcMicrofont from "./microfont.png";
 import IcLock from "./lock.png";
+import IcBorderChatActive from "./ic-borderChatActive.png";
+import IcBorderChat from "./ic-borderChat.png";
 
 export {
   IcComunity,
   IcFilter,
   IcArchive,
   IcNotif,
+  IcBorderChat,
   IcLock,
+  IcBorderChatActive,
   IcMicrofont,
   IcEmoji,
   IcSearch,
