@@ -30,20 +30,20 @@ const ListChat = () => {
           />
         </div>
       </div>
-      <div id="archive">
-        <div className="mx-4 flex flex-row items-center justify-between ">
-          <img
-            src={IcArchive}
-            alt="icon-archive"
-            className="ml-2 mr-8 h-5 w-5"
-          />
-          <div className="mt-5 flex w-full flex-col border-b-2 border-color1">
-            <p className="mb-4 text-color1"> Diarsipkan </p>
-          </div>
-          <p className="text-xs text-colorActive">1</p>
-        </div>
-      </div>
       <div className={`custom-scrollbar h-screen overflow-y-auto `}>
+        <div id="archive">
+          <div className="mx-4 flex flex-row items-center justify-between ">
+            <img
+              src={IcArchive}
+              alt="icon-archive"
+              className="ml-2 mr-8 h-5 w-5"
+            />
+            <div className="mt-5 flex w-full flex-col border-b-2 border-color1">
+              <p className="mb-4 text-color1"> Diarsipkan </p>
+            </div>
+            <p className="text-xs text-colorActive">1</p>
+          </div>
+        </div>
         <div className={`flex cursor-pointer flex-col`}>
           {demoData.map((list, index) => {
             return (
