@@ -3,7 +3,9 @@ import { useActiveChat } from "../../hooks";
 import { DetailChat, Welcome } from "..";
 
 export const Panel: React.FC<{ children: ReactNode }> = ({ children }) => {
-  return <div className="h-screen sm:w-full md:w-full lg:flex">{children}</div>;
+  return (
+    <div className="flex-row2 flex h-screen overflow-hidden">{children}</div>
+  );
 };
 
 export const PanelChat: React.FC<{ children: ReactNode }> = ({ children }) => {

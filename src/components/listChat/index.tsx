@@ -2,20 +2,12 @@ import { IcArchive, IcBack, IcFilter, IcNotif, IcSearch } from "../../assets";
 import demoData from "../../assets/data/datachat.json";
 import { truncateText } from "../../helpers";
 import { useActiveChat } from "../../hooks";
-// import { demoDataInterFace } from "../../interface";
 
-// interface Props {
-//   isFocused: boolean;
-//   setIsFocused: (value: boolean) => void;
-//   setActiveChat: (value: demoDataInterFace) => void;
-//   isActiveChat: demoDataInterFace;
-// }
 const ListChat = () => {
-  //   const { isFocused, setIsFocused, setActiveChat, isActiveChat } = props;
   const { isActiveChat, setActiveChat, setIsFocused, isFocused } =
     useActiveChat();
   return (
-    <div>
+    <div className="h-screen">
       <div id="Search" className="m-2 hidden lg:block">
         <div className="item-center flex flex-row">
           <div className="relative flex flex-grow items-center">
@@ -51,9 +43,7 @@ const ListChat = () => {
           <p className="text-xs text-colorActive">1</p>
         </div>
       </div>
-      <div
-        className={`custom-scrollbar h-screen overflow-y-auto lg:max-h-[36rem] `}
-      >
+      <div className={`custom-scrollbar h-screen overflow-y-auto `}>
         <div className={`flex cursor-pointer flex-col`}>
           {demoData.map((list, index) => {
             return (

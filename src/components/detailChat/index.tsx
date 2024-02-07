@@ -11,7 +11,6 @@ import {
 import { useActiveChat } from "../../hooks";
 
 const DetailChat = () => {
-  //   const { isActiveChat, setIsFocused } = props;
   const { isActiveChat, setIsFocused } = useActiveChat();
 
   const width =
@@ -19,7 +18,6 @@ const DetailChat = () => {
       ? 40
       : isActiveChat.data.message.length;
 
-  //   console.log(width);
   return (
     <div className="flex h-screen w-full bg-color2 lg:border-l lg:border-color2">
       <div className="flex w-full flex-col justify-between bg-color1">
@@ -62,7 +60,9 @@ const DetailChat = () => {
                 <div className="-ml-5 flex  self-start">
                   <img src={IcBorderChat} className="mt-[0.65rem] h-6 w-6" />
                   <div className="bg-color3 -ml-2 mt-3 rounded">
-                    <p className={`ml-2 w-[${width}rem] self-start p-2  `}>
+                    <p
+                      className={`ml-2 self-start p-2 ${isActiveChat.data.message.length > 40 ? "lg:w-[40rem]" : `lg:w-[${width}rem]`}`}
+                    >
                       {isActiveChat.data.message}
                     </p>
                   </div>
@@ -70,7 +70,9 @@ const DetailChat = () => {
 
                 <div className="flex self-end">
                   <div className="bg-color5 -ml-2 mt-3 rounded">
-                    <p className={`ml-3 w-[${width}rem] self-end p-2`}>
+                    <p
+                      className={`ml-3 self-end p-2 ${isActiveChat.data.message.length > 40 ? "lg:w-[40rem]" : `lg:w-[${width}rem]`}`}
+                    >
                       {isActiveChat.data.message}
                     </p>
                   </div>
