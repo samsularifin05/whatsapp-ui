@@ -12,12 +12,14 @@ import IcSearchChat from "./searchChat.png";
 import IcEmoji from "./emoji.png";
 import IcPlus from "./plus.png";
 import IcMicrofont from "./microfont.png";
+import IcLock from "./lock.png";
 
 export {
   IcComunity,
   IcFilter,
   IcArchive,
   IcNotif,
+  IcLock,
   IcMicrofont,
   IcEmoji,
   IcSearch,
