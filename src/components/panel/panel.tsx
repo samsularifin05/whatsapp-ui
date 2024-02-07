@@ -13,7 +13,7 @@ export const PanelChat: React.FC<{ children: ReactNode }> = ({ children }) => {
 
   return (
     <div
-      className={`lg:w-30 bg-color1 ${isActiveChat.active !== -1 && "xs:hidden sm:hidden lg:block"} `}
+      className={`lg:w-30 bg-color1 sm:w-full md:w-full ${isActiveChat.active !== -1 && "xs:hidden sm:hidden lg:block"} `}
     >
       {children}
     </div>

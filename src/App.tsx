@@ -9,7 +9,7 @@ import {
 } from "./components";
 
 const App = () => {
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = useState(100);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const App = () => {
       <img src={Logo} className="h-72 w-72" />
       <div className="-mt-20 w-[25rem] rounded-lg bg-gray-200">
         <div
-          className="bg-color6 h-1 rounded-lg"
+          className="h-1 rounded-lg bg-color6"
           style={{ width: `${progress}%` }}
         ></div>
       </div>

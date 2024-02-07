@@ -1,5 +1,6 @@
 import {
   BgChat,
+  IcBack,
   IcBorderChat,
   IcBorderChatActive,
   IcEmoji,
@@ -11,7 +12,7 @@ import {
 import { useActiveChat } from "../../hooks";
 
 const DetailChat = () => {
-  const { isActiveChat, setIsFocused } = useActiveChat();
+  const { isActiveChat, setIsFocused, setActiveChat } = useActiveChat();
 
   const width =
     isActiveChat.data.message.length > 40
@@ -24,6 +25,22 @@ const DetailChat = () => {
         <div className="w-full bg-color2">
           <div className="mx-2 flex items-center justify-between p-2">
             <div className="flex items-center justify-between">
+              <img
+                src={IcBack}
+                className="mr-4 h-6 w-6 cursor-pointer"
+                onClick={() =>
+                  setActiveChat({
+                    active: -1,
+                    data: {
+                      profile: "",
+                      name: "",
+                      message: "",
+                      time: "",
+                      notificationCount: 0,
+                    },
+                  })
+                }
+              />
               <img
                 alt="profile"
                 className="h-10 w-10 rounded-full"
@@ -59,7 +76,7 @@ const DetailChat = () => {
               <div className="flex flex-col">
                 <div className="-ml-5 flex  self-start">
                   <img src={IcBorderChat} className="mt-[0.65rem] h-6 w-6" />
-                  <div className="bg-color3 -ml-2 mt-3 rounded">
+                  <div className="-ml-2 mt-3 rounded bg-color3">
                     <p
                       className={`ml-2 self-start p-2 ${isActiveChat.data.message.length > 40 ? "lg:w-[40rem]" : `lg:w-[${width}rem]`}`}
                     >
@@ -69,7 +86,7 @@ const DetailChat = () => {
                 </div>
 
                 <div className="flex self-end">
-                  <div className="bg-color5 -ml-2 mt-3 rounded">
+                  <div className="-ml-2 mt-3 rounded bg-color5">
                     <p
                       className={`ml-3 self-end p-2 ${isActiveChat.data.message.length > 40 ? "lg:w-[40rem]" : `lg:w-[${width}rem]`}`}
                     >
@@ -86,7 +103,7 @@ const DetailChat = () => {
           </div>
         </div>
 
-        <div className="bg-color3 flex w-full items-center p-4">
+        <div className="flex w-full items-center bg-color3 p-4">
           {" "}
           <div className="mr-4 flex flex-row">
             <img
@@ -104,7 +121,7 @@ const DetailChat = () => {
             <input
               onFocus={() => setIsFocused(true)}
               onBlur={() => setIsFocused(false)}
-              className="bg-color4 h-9 w-full rounded-8 pl-2 text-cyan-50 outline-none"
+              className="h-9 w-full rounded-8 bg-color4 pl-2 text-cyan-50 outline-none"
               placeholder={"Ketik Pesan"}
             />
           </div>
