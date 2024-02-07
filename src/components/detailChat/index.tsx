@@ -62,7 +62,7 @@ const DetailChat = () => {
                 <div className="-ml-5 flex  self-start">
                   <img src={IcBorderChat} className="mt-[0.65rem] h-6 w-6" />
                   <div className="bg-color3 -ml-2 mt-3 rounded">
-                    <p className={`ml-2 self-start p-2 lg:w-[${width}rem] `}>
+                    <p className={`ml-2 w-[${width}rem] self-start p-2  `}>
                       {isActiveChat.data.message}
                     </p>
                   </div>
@@ -70,7 +70,7 @@ const DetailChat = () => {
 
                 <div className="flex self-end">
                   <div className="bg-color5 -ml-2 mt-3 rounded">
-                    <p className={`ml-3 self-end p-2 lg:w-[${width}rem]`}>
+                    <p className={`ml-3 w-[${width}rem] self-end p-2`}>
                       {isActiveChat.data.message}
                     </p>
                   </div>
