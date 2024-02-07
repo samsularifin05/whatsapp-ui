@@ -14,8 +14,8 @@ const Welcome = () => {
           Gunakan WhatsApp di maksimal 4 perangkat tertaut dan 1 telepon
           sekaligus.
         </p>
-        <div className="flex flex-row items-center justify-center text-sm text-color5">
-          <img src={IcLock} className="mr-2 h-[0.9rem] w-[0.9rem]" />
+        <div className="mt-20 flex flex-row items-center justify-center text-sm text-color5">
+          <img src={IcLock} className="mr-2  h-[0.9rem] w-[0.9rem]" />
           Pesan pribadi Anda terenkripsi secara end-to-end
         </div>
       </div>
