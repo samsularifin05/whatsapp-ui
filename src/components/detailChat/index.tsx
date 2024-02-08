@@ -67,12 +67,12 @@ const DetailChat = () => {
         </div>
         <div className="flex h-[80vh]">
           <div
-            className="custom-scrollbar flex w-full flex-col-reverse overflow-y-scroll bg-color1"
+            className="custom-scrollbar flex w-full flex-col-reverse overflow-y-scroll bg-color1 "
             style={{
-              background: `linear-gradient(rgba(17, 27, 33, 0.5), rgba(17, 27, 33, 0.5)), url('${BgChat}')`,
+              backgroundImage: `linear-gradient(rgba(17, 27, 33, 0.5), rgba(17, 27, 33, 0.5)), url('${BgChat}')`,
             }}
           >
-            <div className="w-2/2 mx-10 text-color1">
+            <div className="w-2/2 mx-10 mb-5 text-color1">
               <div className="flex flex-col">
                 <div className="-ml-5 flex  self-start">
                   <img src={IcBorderChat} className="mt-[0.65rem] h-6 w-6" />
