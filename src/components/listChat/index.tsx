@@ -44,7 +44,7 @@ const ListChat = () => {
             <p className="text-xs text-colorActive">1</p>
           </div>
         </div>
-        <div className={`mb-4 flex cursor-pointer flex-col`}>
+        <div className={`mb-12 flex cursor-pointer flex-col lg:mb-4`}>
           {demoData.map((list, index) => {
             return (
               <section
