@@ -6,7 +6,7 @@ const Status = () => {
 
   return (
     <div data-aos="fade-right">
-      <div className=" h-28 w-full  bg-color2 p-5">
+      <div className="h-28 w-full bg-color2 p-5">
         <div className="mt-12 flex items-center gap-7">
           <img
             src={BackWhite}
