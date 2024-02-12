@@ -14,6 +14,16 @@ interface ActiveChatContextValue {
     };
   };
   isFocused: boolean;
+  isTogleMenu: {
+    active: number;
+    title: string;
+  };
+  setToggleMenu: React.Dispatch<
+    React.SetStateAction<{
+      active: number;
+      title: string;
+    }>
+  >;
   setIsFocused: React.Dispatch<React.SetStateAction<boolean>>;
   setActiveChat: React.Dispatch<
     React.SetStateAction<{
@@ -50,10 +60,21 @@ export const ActiveChatProvider: React.FC<{ children: ReactNode }> = ({
   });
 
   const [isFocused, setIsFocused] = useState(false);
+  const [isTogleMenu, setToggleMenu] = useState({
+    active: -1,
+    title: "",
+  });
 
   return (
     <ActiveChatContext.Provider
-      value={{ isActiveChat, setActiveChat, isFocused, setIsFocused }}
+      value={{
+        isActiveChat,
+        setActiveChat,
+        isFocused,
+        setIsFocused,
+        isTogleMenu,
+        setToggleMenu,
+      }}
     >
       {children}
     </ActiveChatContext.Provider>
@@ -61,7 +82,7 @@ export const ActiveChatProvider: React.FC<{ children: ReactNode }> = ({
 };
 
 // Buat custom hook untuk menggunakan context
-export const useActiveChat = () => {
+export const useContextApp = () => {
   const context = useContext(ActiveChatContext);
   if (!context) {
     throw new Error("useActiveChat must be used within a ActiveChatProvider");

@@ -16,11 +16,15 @@ import IcLock from "./lock.png";
 import IcBorderChatActive from "./ic-borderChatActive.png";
 import IcBorderChat from "./ic-borderChat.png";
 import Logo from "./logo.png";
+import BackWhite from "./backWhite.png";
+import IcKomunitas from "./komunitas.png";
 
 export {
   IcComunity,
   IcFilter,
   IcArchive,
+  BackWhite,
+  IcKomunitas,
   IcNotif,
   IcBorderChat,
   Logo,

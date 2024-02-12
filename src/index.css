@@ -6,7 +6,22 @@
     width: 43%;
   }
 }
+@layer components {
+  .ActiveButton {
+    @apply bg-color7 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full;
+  }
+  .noActiveButton {
+    @apply flex h-10 w-10 cursor-pointer items-center justify-center rounded-full;
+  }
+}
+.dropdown {
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+}
 
+.dropdown.active {
+  opacity: 1;
+}
 .custom-scrollbar {
   scrollbar-color: #303d45 transparent;
   scrollbar-width: thin;

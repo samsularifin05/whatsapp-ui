@@ -9,10 +9,10 @@ import {
   IcSearchChat,
   IcSetting,
 } from "../../assets";
-import { useActiveChat } from "../../hooks";
+import { useContextApp } from "../../hooks";
 
 const DetailChat = () => {
-  const { isActiveChat, setIsFocused, setActiveChat } = useActiveChat();
+  const { isActiveChat, setIsFocused, setActiveChat } = useContextApp();
 
   const width =
     isActiveChat.data.message.length > 40

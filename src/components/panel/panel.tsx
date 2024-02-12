@@ -1,15 +1,15 @@
 import { ReactNode } from "react";
-import { useActiveChat } from "../../hooks";
+import { useContextApp } from "../../hooks";
 import { DetailChat, Welcome } from "..";
 
 export const Panel: React.FC<{ children: ReactNode }> = ({ children }) => {
   return (
-    <div className="flex-row2 flex h-screen overflow-hidden">{children}</div>
+    <div className="flex h-screen flex-row overflow-hidden">{children}</div>
   );
 };
 
 export const PanelChat: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const { isActiveChat } = useActiveChat();
+  const { isActiveChat } = useContextApp();
 
   return (
     <div
@@ -21,7 +21,7 @@ export const PanelChat: React.FC<{ children: ReactNode }> = ({ children }) => {
 };
 
 export const ChatAndWelcomScreen: React.FC = () => {
-  const { isActiveChat } = useActiveChat();
+  const { isActiveChat } = useContextApp();
 
   return isActiveChat.active === -1 ? <Welcome /> : <DetailChat />;
 };

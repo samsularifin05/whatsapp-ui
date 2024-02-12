@@ -1,11 +1,11 @@
 import { IcArchive, IcBack, IcFilter, IcNotif, IcSearch } from "../../assets";
 import demoData from "../../assets/data/datachat.json";
 import { truncateText } from "../../helpers";
-import { useActiveChat } from "../../hooks";
+import { useContextApp } from "../../hooks";
 
 const ListChat = () => {
   const { isActiveChat, setActiveChat, setIsFocused, isFocused } =
-    useActiveChat();
+    useContextApp();
   return (
     <div className="h-screen">
       <div id="Search" className="m-2 hidden lg:block">
@@ -49,12 +49,12 @@ const ListChat = () => {
             return (
               <section
                 key={index}
-                onClick={() =>
+                onClick={() => {
                   setActiveChat({
                     active: index,
                     data: list,
-                  })
-                }
+                  });
+                }}
                 className={`${isActiveChat.active === index && "bg-chatActive"}`}
               >
                 <div className={`ml-3 mr-4 flex items-center space-y-4 `}>
