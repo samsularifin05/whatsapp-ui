@@ -6,12 +6,12 @@ import {
   Panel,
   PanelChat,
   Profile,
+  Status,
+  Message,
+  Saluran,
+  Comunity,
 } from "./components";
 import { useContextApp } from "./hooks";
-import Comunity from "./components/profile/comunity";
-import Status from "./components/profile/status";
-import Message from "./components/profile/message";
-import Saluran from "./components/profile/saluran";
 
 const App = () => {
   const [progress, setProgress] = useState(0);
@@ -61,7 +61,11 @@ const App = () => {
     <LoadingScreen progress={progress} />
   ) : (
     <Panel>
-      <PanelChat>{renderMenuContent(isTogleMenu.title)}</PanelChat>
+      <PanelChat>
+        {renderMenuContent(isTogleMenu.title)}
+        <Profile />
+        <ListChat />
+      </PanelChat>
       <ChatAndWelcomScreen />
     </Panel>
   );

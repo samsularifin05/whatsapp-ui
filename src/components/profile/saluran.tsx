@@ -5,8 +5,11 @@ const Saluran = () => {
   const { setToggleMenu } = useContextApp();
 
   return (
-    <div data-aos="fade-right">
-      <div className=" h-28 w-full  bg-color2 p-5">
+    <div
+      data-aos="fade-right"
+      className="absolute inset-0 z-50 overflow-y-auto "
+    >
+      <div className="h-28 w-[27.1rem] bg-color2 p-5 ">
         <div className="mt-12 flex items-center gap-7">
           <img
             src={BackWhite}
@@ -19,6 +22,11 @@ const Saluran = () => {
             }
           />
           <p className="text-[19px] text-color3">Saluran</p>
+        </div>
+      </div>
+      <div className="flex h-full w-[27.1rem] ">
+        <div className="flex w-[27.1rem] flex-col bg-color1 text-white">
+          <div className="flex flex-row items-center gap-2 p-3"></div>
         </div>
       </div>
     </div>
