@@ -1,4 +1,4 @@
-# React + TypeScript + Vite
+# React + TypeScript + Vite + Tailwind
 
  ## Donation
 You can support Me On [Saweria](https://saweria.co/samsularifin05)
