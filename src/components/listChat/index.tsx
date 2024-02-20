@@ -4,8 +4,13 @@ import { truncateText } from "../../helpers";
 import { useContextApp } from "../../hooks";
 
 const ListChat = () => {
-  const { isActiveChat, setActiveChat, setIsFocused, isFocused } =
-    useContextApp();
+  const {
+    isActiveChat,
+    setActiveChat,
+    setIsFocused,
+    isFocused,
+    setToggleMenu,
+  } = useContextApp();
   return (
     <div className="h-screen">
       <div id="Search" className="m-2 hidden lg:block">
@@ -14,7 +19,7 @@ const ListChat = () => {
             <img
               alt="icon-search"
               src={isFocused ? IcBack : IcSearch}
-              className="absolute left-2 h-6 w-6 cursor-pointer  text-gray-500"
+              className="absolute left-2 h-6 w-6 cursor-pointer text-gray-500"
             />
             <input
               onFocus={() => setIsFocused(true)}
@@ -53,6 +58,10 @@ const ListChat = () => {
                   setActiveChat({
                     active: index,
                     data: list,
+                  });
+                  setToggleMenu({
+                    active: -1,
+                    title: "",
                   });
                 }}
                 className={`${isActiveChat.active === index && "bg-chatActive"}`}

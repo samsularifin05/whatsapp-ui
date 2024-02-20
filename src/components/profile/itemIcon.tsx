@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useContextApp } from "../../hooks";
 
 interface ItemProps {
@@ -12,22 +12,39 @@ const ItemIcon = (props: ItemProps) => {
   const { img, onClick, title, active } = props;
   const menuRef = useRef<HTMLDivElement>(null);
   const { setToggleMenu } = useContextApp();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   useEffect(() => {
+    if (active && title === "Setting") {
+      setIsMenuOpen(true);
+    }
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
         setToggleMenu({
           active: -1,
           title: "",
         });
+        setIsMenuOpen(false); // Close menu when clicking outside
       }
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [onClick, setToggleMenu]);
+  }, [active, setToggleMenu, title]);
+
+  const handleLogout = () => {
+    localStorage.setItem("IsLoading", "true");
+    setTimeout(() => {
+      window.location.reload();
+    }, 300);
+  };
+
+  const handleKeluarClick = () => {
+    handleLogout(); // Execute logout function
+    setIsMenuOpen(false); // Close menu after logout function executed
+  };
 
   return (
     <div
@@ -35,18 +52,19 @@ const ItemIcon = (props: ItemProps) => {
       onClick={onClick}
     >
       <img src={img} alt={title} className="mx-3 h-6 w-6 rounded-full" />
-      {active && title === "Setting" && (
+      {active && title === "Setting" && isMenuOpen && (
         <div
-          ref={menuRef} // Mengaitkan ref ke menu untuk mengetahui apakah klik dilakukan di dalam atau di luar area menu
           data-aos="fade-down"
-          className={`bg-color8 text-color6 absolute left-[13rem] z-30 mt-[18rem] flex h-[15rem] w-[12.7rem] flex-col gap-3 rounded p-4 `}
+          className={`absolute left-[13rem] z-30 mt-[18rem] flex h-[15rem] w-[12.7rem] flex-col gap-3 rounded bg-color8 p-4 text-color6 `}
         >
-          <p>Group Baru</p>
-          <p>Komunitas Baru</p>
-          <p>Pesan Berbintang</p>
-          <p>Pilih Chat</p>
-          <p>Pengaturan</p>
-          <p>Keluar</p>
+          <p className="cursor-pointer">Group Baru</p>
+          <p className="cursor-pointer">Komunitas Baru</p>
+          <p className="cursor-pointer">Pesan Berbintang</p>
+          <p className="cursor-pointer">Pilih Chat</p>
+          <p className="cursor-pointer">Pengaturan</p>
+          <p className="cursor-pointer" onClick={handleKeluarClick}>
+            Keluar
+          </p>
         </div>
       )}
     </div>
