@@ -11,6 +11,7 @@ const ListChat = () => {
     isFocused,
     setToggleMenu,
   } = useContextApp();
+
   return (
     <div className="h-screen">
       <div id="Search" className="m-2 hidden lg:block">
@@ -51,6 +52,8 @@ const ListChat = () => {
         </div>
         <div className={`mb-12 flex cursor-pointer flex-col lg:mb-4`}>
           {demoData.map((list, index) => {
+            // const bgColor = getRandomColor();
+            // const textColor = getTextColor(bgColor);
             return (
               <section
                 key={index}
@@ -72,6 +75,14 @@ const ListChat = () => {
                     className="mr-4 h-12 w-12 rounded-full"
                     alt="Profile"
                   />
+                  {/* <div
+                    className={
+                      "mr-2 flex h-10 w-11 items-center justify-center rounded-full  text-center"
+                    }
+                    style={{ backgroundColor: bgColor, color: textColor }}
+                  >
+                    {list.name.slice(0, 1)}
+                  </div> */}
                   <div className="flex w-full flex-col">
                     <div className="flex justify-between border-b-2 border-color1">
                       <div className="flex flex-col">

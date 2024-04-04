@@ -39,7 +39,7 @@ const Profile = () => {
         <img
           alt="profile"
           className="h-10 w-10 rounded-full"
-          src="https://placekitten.com/200/200?image=1"
+          src="https://avatars.githubusercontent.com/u/21103299?v=4"
         />
         <div className="flex flex-row justify-around gap-3">
           {dataMenu.map((list, index) => {
