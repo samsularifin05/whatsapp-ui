@@ -1,16 +1,72 @@
 [
   {
-    "profile": "https://picsum.photos/id/237/200/300",
-    "name": "Juana Ledner",
-    "message": "Vado arto aspicio armarium. Vado arto aspicio armarium. Vado arto aspicio armarium. Vado arto aspicio armarium. Vado arto aspicio armarium. Vado arto aspicio armarium. Vado arto aspicio armarium. Vado arto aspicio armarium. Vado arto aspicio armarium. Vado arto aspicio armarium. Vado arto aspicio armarium. Vado arto aspicio armarium. Vado arto aspicio armarium. Vado arto aspicio armarium. ",
+    "profile": "https://picsum.photos/id/101/200/300",
+    "name": "Samsul Arifin",
+    "message": "Ini adalah sample chat",
     "time": "10:06:21 AM",
     "notificationCount": 5
   },
   {
-    "profile": "https://picsum.photos/id/237/200/300",
+    "profile": "https://picsum.photos/id/102/200/300",
     "name": "Miss Veronica Crona",
     "message": "Cubo crastinus tero caelestis tabesco timor consequatur videlicet cruentus tutis.",
     "time": "10:04:33 PM",
+    "notificationCount": 0
+  },
+  {
+    "profile": "https://picsum.photos/id/103/200/300",
+    "name": "John Doe",
+    "message": "Lorem ipsum dolor sit amet.",
+    "time": "09:45:12 AM",
+    "notificationCount": 2
+  },
+  {
+    "profile": "https://picsum.photos/id/104/200/300",
+    "name": "Jane Smith",
+    "message": "Consectetur adipiscing elit.",
+    "time": "08:32:45 AM",
+    "notificationCount": 3
+  },
+  {
+    "profile": "https://picsum.photos/id/105/200/300",
+    "name": "Robert Brown",
+    "message": "Sed do eiusmod tempor incididunt.",
+    "time": "11:15:30 AM",
+    "notificationCount": 1
+  },
+  {
+    "profile": "https://picsum.photos/id/106/200/300",
+    "name": "Alice Johnson",
+    "message": "Ut labore et dolore magna aliqua.",
+    "time": "07:20:10 PM",
+    "notificationCount": 0
+  },
+  {
+    "profile": "https://picsum.photos/id/107/200/300",
+    "name": "Charlie Davis",
+    "message": "Ut enim ad minim veniam.",
+    "time": "06:50:00 AM",
+    "notificationCount": 4
+  },
+  {
+    "profile": "https://picsum.photos/id/108/200/300",
+    "name": "Emily Martinez",
+    "message": "Quis nostrud exercitation ullamco laboris.",
+    "time": "12:30:45 PM",
+    "notificationCount": 2
+  },
+  {
+    "profile": "https://picsum.photos/id/109/200/300",
+    "name": "David Wilson",
+    "message": "Nisi ut aliquip ex ea commodo consequat.",
+    "time": "09:05:55 PM",
+    "notificationCount": 1
+  },
+  {
+    "profile": "https://picsum.photos/id/110/200/300",
+    "name": "Sarah Moore",
+    "message": "Duis aute irure dolor in reprehenderit.",
+    "time": "05:40:30 PM",
     "notificationCount": 0
   }
 ]
