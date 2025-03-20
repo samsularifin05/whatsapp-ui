@@ -51,11 +51,11 @@ const ItemIcon = (props: ItemProps) => {
       className={active ? "ActiveButton" : "noActiveButton"}
       onClick={onClick}
     >
-      <img src={img} alt={title} className="mx-3 h-6 w-6 rounded-full" />
+      <img src={img} alt={title} className="w-6 h-6 mx-3 rounded-full" />
       {active && title === "Setting" && isMenuOpen && (
         <div
           data-aos="fade-down"
-          className={`absolute left-[13rem] z-30 mt-[18rem] flex h-[15rem] w-[12.7rem] flex-col gap-3 rounded bg-color8 p-4 text-color6 `}
+          className={`bg-color8 text-color16 absolute left-[13rem] z-30 mt-[18rem] flex h-[15rem] w-[12.7rem] flex-col gap-3 rounded p-4`}
         >
           <p className="cursor-pointer">Group Baru</p>
           <p className="cursor-pointer">Komunitas Baru</p>

@@ -20,14 +20,14 @@ const DetailChat = () => {
       : isActiveChat.data.message.length;
 
   return (
-    <div className="flex h-screen w-full bg-color2 lg:border-l lg:border-color2">
-      <div className="flex w-full flex-col justify-between bg-color1">
+    <div className="flex w-full h-screen bg-color2 lg:border-color18 lg:border-l">
+      <div className="flex flex-col justify-between w-full bg-color1">
         <div className="w-full bg-color2">
-          <div className="mx-2 flex items-center justify-between p-2">
+          <div className="flex items-center justify-between p-2 mx-2">
             <div className="flex items-center justify-between">
               <img
                 src={IcBack}
-                className="mr-4 h-6 w-6 cursor-pointer"
+                className="w-6 h-6 mr-4 cursor-pointer"
                 onClick={() =>
                   setActiveChat({
                     active: -1,
@@ -43,10 +43,10 @@ const DetailChat = () => {
               />
               <img
                 alt="profile"
-                className="h-10 w-10 rounded-full"
+                className="w-10 h-10 rounded-full"
                 src={isActiveChat.data.profile}
               />
-              <p className="ml-3 cursor-pointer text-color1">
+              <p className="ml-3 cursor-pointer text-color16">
                 {" "}
                 {isActiveChat.data.name}{" "}
               </p>
@@ -60,23 +60,23 @@ const DetailChat = () => {
               <img
                 alt="icon-setting"
                 src={IcSetting}
-                className="mr-2 h-6 w-6 cursor-pointer"
+                className="w-6 h-6 mr-2 cursor-pointer"
               />
             </div>
           </div>
         </div>
         <div className="flex h-[80vh]">
           <div
-            className="custom-scrollbar flex w-full flex-col-reverse overflow-y-scroll bg-color1 "
+            className="flex flex-col-reverse w-full overflow-y-scroll custom-scrollbar bg-color1"
             style={{
               backgroundImage: `linear-gradient(rgba(17, 27, 33, 0.5), rgba(17, 27, 33, 0.5)), url('${BgChat}')`,
             }}
           >
-            <div className="w-2/2 mx-10 mb-5 text-color1">
+            <div className="text-color16 mx-10 mb-5 w-[80%] lg:w-[90%]">
               <div className="flex flex-col">
-                <div className="-ml-5 flex  self-start">
+                <div className="flex self-start -ml-5">
                   <img src={IcBorderChat} className="mt-[0.65rem] h-6 w-6" />
-                  <div className="-ml-2 mt-3 rounded bg-color3">
+                  <div className="mt-3 -ml-2 rounded bg-color3">
                     <p
                       className={`ml-2 self-start p-2 ${isActiveChat.data.message.length > 40 ? "lg:w-[40rem]" : `lg:w-[${width}rem]`}`}
                     >
@@ -86,7 +86,7 @@ const DetailChat = () => {
                 </div>
 
                 <div className="flex self-end">
-                  <div className="-ml-2 mt-3 rounded bg-color5">
+                  <div className="mt-3 -ml-2 rounded bg-color5">
                     <p
                       className={`ml-3 self-end p-2 ${isActiveChat.data.message.length > 40 ? "lg:w-[40rem]" : `lg:w-[${width}rem]`}`}
                     >
@@ -95,7 +95,7 @@ const DetailChat = () => {
                   </div>
                   <img
                     src={IcBorderChatActive}
-                    className="-ml-2 -mr-4 mt-[0.73rem] h-6 w-6"
+                    className="mt-[0.73rem] -mr-4 -ml-2 h-6 w-6"
                   />
                 </div>
               </div>
@@ -103,32 +103,32 @@ const DetailChat = () => {
           </div>
         </div>
 
-        <div className="flex w-full items-center bg-color3 p-4">
+        <div className="flex items-center w-full p-4 bg-color3">
           {" "}
-          <div className="mr-4 flex flex-row">
+          <div className="flex flex-row mr-4">
             <img
               src={IcEmoji}
               alt="icon-emoji"
-              className="ml-2 h-7 w-7 cursor-pointer"
+              className="ml-2 cursor-pointer h-7 w-7"
             />
             <img
               alt="icon-plus"
               src={IcPlus}
-              className="ml-2 mr-3 h-7 w-7 cursor-pointer"
+              className="ml-2 mr-3 cursor-pointer h-7 w-7"
             />
           </div>
-          <div className="ml-2 w-full">
+          <div className="w-full ml-2">
             <input
               onFocus={() => setIsFocused(true)}
               onBlur={() => setIsFocused(false)}
-              className="h-9 w-full rounded-8 bg-color4 pl-2 text-cyan-50 outline-none"
+              className="w-full pl-2 outline-none rounded-8 bg-text-color12 h-9 text-cyan-50"
               placeholder={"Ketik Pesan"}
             />
           </div>
           <img
             src={IcMicrofont}
             alt="icon-microfont"
-            className="ml-2 h-7 w-7 cursor-pointer"
+            className="ml-2 cursor-pointer h-7 w-7"
           />
         </div>
       </div>

@@ -7,9 +7,9 @@ const Saluran = () => {
   return (
     <div
       data-aos="fade-right"
-      className="absolute inset-0 z-50 overflow-y-auto "
+      className="absolute inset-0 z-50 overflow-y-auto"
     >
-      <div className="h-28 w-[27.1rem] bg-color2 p-5 ">
+      <div className="bg-color2 h-28 w-[27.1rem] p-5">
         <div className="mt-12 flex items-center gap-7">
           <img
             src={BackWhite}
@@ -21,11 +21,11 @@ const Saluran = () => {
               })
             }
           />
-          <p className="text-[19px] text-color3">Saluran</p>
+          <p className="text-color11 text-[19px]">Saluran</p>
         </div>
       </div>
-      <div className="flex h-full w-[27.1rem] ">
-        <div className="flex w-[27.1rem] flex-col bg-color1 text-white">
+      <div className="flex h-full w-[27.1rem]">
+        <div className="bg-color1 flex w-[27.1rem] flex-col text-white">
           <div className="flex flex-row items-center gap-2 p-3"></div>
         </div>
       </div>

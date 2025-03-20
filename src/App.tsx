@@ -41,6 +41,7 @@ const App = () => {
   }, [progress, screenBarcode, storedIsLoading]);
 
   const moveScreen = () => {
+    console.log("MASUK");
     setScreenBarcode(false);
   };
 

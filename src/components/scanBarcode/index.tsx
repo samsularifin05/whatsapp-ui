@@ -5,9 +5,9 @@ interface Props {
 }
 const ScanBarcode = (props: Props) => {
   return (
-    <div className="flex h-screen flex-col">
-      <div className="lg:bg-color9 flex h-56 flex-1 items-center justify-center bg-white">
-        <div className="flex flex-col gap-2 rounded-lg bg-white p-16 lg:absolute lg:mt-96">
+    <div className="flex flex-col h-screen bg-color9">
+      <div className="flex items-center justify-center flex-1 h-56 bg-white lg:bg-color9">
+        <div className="flex flex-col gap-2 p-16 bg-white rounded-lg lg:absolute lg:mt-96">
           <h1 className="text-color7 lg:text-[30px]">
             Gunakan WhatsApp di komputer Anda
           </h1>
@@ -33,13 +33,13 @@ const ScanBarcode = (props: Props) => {
             <img
               src={BarcodeImg}
               alt="QR Code"
-              className="h-52 xs:h-24 md:h-52 lg:h-72"
+              className="xs:h-24 h-52 md:h-52 lg:h-72"
             />
           </div>
           <div className="flex justify-center">
             <button
               onClick={props.onClick}
-              className="bg-color9 flex w-36 justify-center rounded p-2 text-white"
+              className="flex justify-center p-2 text-white rounded bg-color9 w-36"
             >
               Lanjut
             </button>

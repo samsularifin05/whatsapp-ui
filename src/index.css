@@ -1,18 +1,52 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@theme {
+  --color-mint-500: oklch(0.72 0.11 178);
+  --color-color1: #111b21;
+  --color-color2: #212e35;
+  --color-color3: #1d282f;
+  --color-text-color12: #2a3942;
+  --color-color5: #015c4b;
+  --color-color6: #666f73;
+  --color-color7: #374146;
+  --color-color8: #233138;
+  --color-color9: #04a784;
+  --color-colorActive: #04a784;
+  --color-color10: #76868f;
+  --color-color11: #c5cacd;
+  --color-color12: #8696a0;
+  --color-color13: #667681;
+  --color-color14: #d1d7db;
+  --color-color15: #40525d;
+  --color-color17: #222d34;
+  --color-color16: #e9edef;
+  --color-color18: #303d45;
+  --color-color-active: #04a784;
+  --chat-active: #2a3942;
+
+  --screen-xs: 240px;
+  --screen-sm: 600px;
+  --screen-md: 768px;
+  --height-80vh: 80vh;
+  --height-85vh: 85vh;
+  --height-90vh: 90vh;
+  --width-70: 70%;
+  --width-30: 43%;
+  --max-width-70: 70%;
+
+  --radius-8: 8px;
+}
+
 @layer utilities {
-  .w-30 {
-    width: 43%;
+  .space-y-4 > * + * {
+    margin-top: 1rem; /* 4 (1rem) = 16px */
   }
 }
-@layer components {
-  .ActiveButton {
-    @apply bg-color7 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full;
-  }
-  .noActiveButton {
-    @apply flex h-10 w-10 cursor-pointer items-center justify-center rounded-full;
-  }
+
+.ActiveButton {
+  @apply flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-[color7];
+}
+.noActiveButton {
+  @apply flex h-10 w-10 cursor-pointer items-center justify-center rounded-full;
 }
 .dropdown {
   transition: opacity 0.3s ease-in-out;
